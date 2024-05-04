@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - opaliwal.wget
+    #- wget
+    #- zip
+    #- tree
+      #  - my_role

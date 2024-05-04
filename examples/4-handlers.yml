@@ -1,0 +1,21 @@
+---
+#Ok -- no changes reqiuired on remote node
+#Changed -- when ansible playbook state is not synched with remote node
+#Failed  -- ansible tried to change the state but failed to apply
+
+
+- name: nginx server
+  become: true
+  hosts: all
+  tasks:
+    - name: update cache
+      shell: apt update
+    
+    - name: install nginx server
+      apt: name=nginx state=present
+      notify:
+        - start nginx server
+
+  handlers:
+    - name: start nginx server
+      service: name=nginx enabled=yes state=started

@@ -1,0 +1,18 @@
+---
+# tasks file for opaliwal.wget
+- name: update apt
+  shell: apt update
+  become: yes
+
+- name: print hostname
+  debug: 
+    msg: "{{ ansible_hostname }}"
+
+- name: copy a file
+  copy:
+    src: files/file1.txt
+    dest: /tmp/file1.txt
+- name: install nginx HTTP server
+  apt: name=nginx state=present
+- name: start HTTP server
+  service: name=nginx enabled=yes state=started

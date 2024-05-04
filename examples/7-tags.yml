@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  tasks:
+    - name: print hostname
+      debug: msg="hostname is {{ ansible_hostname }}"
+
+    - name: tag1
+      tags:
+        - ankita
+      debug:
+        msg: "My name is Ankita Meena"
+    - name: tag2
+      tags:
+        - om
+      debug:
+        msg: "My name is Omprakash Paliwal"
+    - name: tag3
+      tags:
+        - prahasta
+      debug:
+        msg: "My name is Prahasta kumar"

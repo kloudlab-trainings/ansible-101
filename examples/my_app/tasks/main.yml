@@ -1,0 +1,15 @@
+---
+- name: Display Debug Message
+  debug:
+    msg: "This role was created by ansible-galaxy."
+
+- name: create app_dir
+  file:
+    path: /etc/my_app
+    state: directory
+  become: yes
+
+- name: copy app config
+  template:
+    src: config.ini.j2
+    dest: /etc/my_app/config.ini

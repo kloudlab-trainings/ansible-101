@@ -1,0 +1,14 @@
+[all:vars]
+ansible_user=ubuntu 
+ansible_port=22 
+ansible_ssh_private_key_file=/home/ubuntu/ansible-demo/kloudlab-ue1.pem
+
+[all:children]
+node1
+node2
+
+[node1]
+ec2-52-206-89-29.compute-1.amazonaws.com
+
+[node2]
+ec2-54-159-118-179.compute-1.amazonaws.com

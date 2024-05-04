@@ -1,0 +1,12 @@
+---
+- name: modules_usage
+  become: yes
+  hosts: all
+  tasks:
+    - name: install vim
+      apt:
+        name: vim
+        state: present
+        #state: absent
+    - name: install zip
+      apt: "name=zip state=absent"

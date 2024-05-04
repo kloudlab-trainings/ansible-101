@@ -1,0 +1,12 @@
+---
+- hosts: web,db
+  become: true
+  any_errors_fatal: true
+  tasks:
+    - name: install tree
+      apt: name=tree
+    - name: install zip
+      apt: name=zip
+    - name: install wget
+      apt: name=wget
+  

@@ -1,0 +1,10 @@
+---
+- hosts: all
+  #gather_facts: false
+  vars:
+    #  name: Ankita
+    city: Bhilwara
+  tasks:
+    - name: use variable
+      debug:
+        msg: "My name is {{name}},I live in {{city}} {{ ansible_default_ipv4.address }}."

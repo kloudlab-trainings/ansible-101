@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - name: install packages
+      apt: name='{{item}}' state=present
+      with_items:
+        - tree
+        - zip
+        - unzip
+        - wget
+      

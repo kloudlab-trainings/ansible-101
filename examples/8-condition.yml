@@ -1,0 +1,20 @@
+---
+- name: Example Playbook with When Condition
+  hosts: localhost
+
+  tasks:
+    - name: Check if a file exists
+      stat:
+        path: /etc/hosts
+      register: file_stat
+
+    - name: msg if the file exists
+      debug:
+        msg: "The file exists!"
+      when: file_stat.stat.checksum
+
+    - name: msg  does not exist
+      debug:
+        msg: "The file does not exist!"
+      when: not file_stat.stat.exists
+

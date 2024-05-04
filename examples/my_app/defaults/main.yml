@@ -1,0 +1,6 @@
+---
+# defaults file for my_role
+message: "Owned by opaliwal."
+port: 8080
+servername: "{{ ansible_hostname }}"
+app_lib_dir: "/etc/my_app/lib"

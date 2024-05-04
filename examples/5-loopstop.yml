@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: uninstall packages
+      apt: name='{{item}}' state=absent
+      with_items:
+        - tree
+        - zip
+        - unzip
+        - wget
+      

@@ -1,0 +1,6 @@
+---
+# tasks file for wget
+- name: install wget
+  apt: name=wget state=present
+- name: print msg
+  debug: msg="wget is installed"

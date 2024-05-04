@@ -1,0 +1,9 @@
+---
+- name: "install my app on all nodes"
+  hosts: all
+  become: yes
+  vars:
+    foo: bar
+    message: "Created by modi."
+  roles:
+    - my_app

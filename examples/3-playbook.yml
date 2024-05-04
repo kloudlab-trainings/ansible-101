@@ -1,0 +1,11 @@
+---
+- name: HTTP server
+  become: true
+  hosts: node1
+  roles:
+    - opaliwal.wget
+- name: tree
+  become: true
+  hosts: node2
+  roles:
+    - tree

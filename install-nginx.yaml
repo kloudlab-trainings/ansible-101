@@ -1,0 +1,33 @@
+1. apt update
+2. install nginx repo
+3. install nginx packt (apt install nginx)
+4. Copy nginx.config (specific config for your need)
+5. start and enable nginx 
+6. check if nginx is up
+
+
+ -- roles
+ - nginx/
+    tasks
+    files/nginx.config
+    handlers/start-stop-nginx
+
+
+---
+# webapp-1.yml
+- name: web app 1
+  hosts: all
+  vars: 
+    web_dns: app.example.com
+  - roles:
+    - nginx
+
+
+
+# webapp-2.yml
+- name: web app 2
+  hosts: all
+  vars:
+    web_dns: app.example.com
+  - roles:
+    - nginx

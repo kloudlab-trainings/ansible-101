@@ -1,0 +1,20 @@
+---
+- name: Generate Configuration File
+  hosts: all
+  vars:
+    server_name: "{{ ansible_hostname }}"
+    port: 8080
+    owner: opaliwal
+  tasks:
+    - name: make sure app dir exsits
+      file: 
+        path: /etc/my_app
+        state: directory
+      become: yes
+
+    - name: Generate configuration file from template
+      template:
+        src: config.ini.j2
+        dest: /etc/my_app/config.ini
+      become: yes
+
