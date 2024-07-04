@@ -1,0 +1,14 @@
+#ansible -i hosts.ini all -m command -a "ip a"
+- hosts: all
+  become: yes
+  tasks:
+    - name: Update repositories cache and install htop package
+      ansible.builtin.apt:
+        name: htop
+        update_cache: yes
+    # - command: "ip a"
+    # - ping:
+    # - command: "apt update"
+    # - command: "apt install -y htop"
+      
+
