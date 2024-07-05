@@ -28,3 +28,10 @@ ansible -i hosts.ini all -m command -a "ip a"
 ```
 
 great for debugging, running one task. But when you have many tasks you need something better.
+
+#Playbook Commands
+export ANSIBLE_CONFIG=`pwd`/ansible.cfg
+ansible-playbook -i hosts.ini 1.yaml
+
+Limit to specific hosts
+ansible-playbook -i hosts.ini 1.yaml -l <hostname/ip/group>

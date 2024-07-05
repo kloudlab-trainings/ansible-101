@@ -1,0 +1,36 @@
+#ansible -i hosts.ini all -m ping
+
+- name: Team1
+  hosts: team1
+  gather_facts: false
+  tasks:
+    - name: "install vim on machine"
+      apt:
+        name: vim
+        state: present
+      become: yes
+
+    - name: create user 
+      ansible.builtin.user:
+        name: "{{ team_username }}"
+        comment: Created by ansible
+        group: sudo
+      become: yes
+
+
+- name: Team2
+  hosts: team2
+  gather_facts: false
+  tasks:
+    - name: install nano
+      apt:
+        name: nano
+      become: yes
+        
+    - name: create user 
+      ansible.builtin.user:
+        name: "{{ team_username }}"
+        comment: Created by ansible
+        group: sudo
+      become: yes
+

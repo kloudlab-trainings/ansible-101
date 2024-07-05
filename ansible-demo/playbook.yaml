@@ -1,4 +1,4 @@
-#ansible -i hosts.ini all -m command -a "ip a"
+#ansible -i hosts.ini all -m ping
 - hosts: all
   become: yes
   tasks:

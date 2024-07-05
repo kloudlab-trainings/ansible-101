@@ -3,6 +3,7 @@
   become: yes
   hosts: all
   tasks:
+    
     - name: install vim
       apt:
         name: vim
