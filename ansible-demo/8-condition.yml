@@ -1,0 +1,27 @@
+---
+- name: Example Playbook with When Condition
+  hosts: all
+  vars:
+    # my_var: twinkle
+  tasks:
+    - name: A single condition can be supplied as string instead of list
+      ansible.builtin.assert:
+        that: my_var == "unknown"
+    
+    - name: Check if a file exists
+      stat:
+        path: /etc/hostss
+      register: file_stat
+
+    - name: msg if the file exists. this task can fail
+      debug:
+        msg: "The file exists!"
+      when: file_stat.stat.checksum
+      ignore_errors: yes
+
+
+    - name: msg  does not exist
+      debug:
+        msg: "The file does not exist!"
+      when: not file_stat.stat.exists
+

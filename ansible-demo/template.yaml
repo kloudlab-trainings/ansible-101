@@ -1,0 +1,16 @@
+- name: demo for templates
+  hosts: localhost
+  vars:
+    title: MY cool website
+    header: The Second hand book company
+    users:
+      - url: www.user1.com
+        username: user1
+      - url: www.user2.com
+        username: user2
+      
+  tasks:
+    - name: render html template
+      template:
+        src: files/index.html.j2
+        dest: /tmp/index.html

@@ -6,9 +6,9 @@
       ansible.builtin.apt:
         name: htop
         update_cache: yes
-    # - command: "ip a"
-    # - ping:
-    # - command: "apt update"
-    # - command: "apt install -y htop"
+    - command: "ip a"
+    - ping:
+    - command: "apt update"
+    - command: "apt install -y htop"
       
 

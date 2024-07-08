@@ -1,0 +1,13 @@
+- name: demo for loops
+  hosts: all
+  become: yes
+  tasks:
+    - name: install editor
+      apt:
+        name: "{{ item }}"
+        state: absent
+      with_items:
+        - vim
+        - htop
+        - telnet
+    

@@ -1,0 +1,28 @@
+- name: tags demo
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: jodhpur location
+      debug: msg="I am from Jodhpur"
+      tags: 
+        - west_india
+        - vegeterian
+    - name: veganism
+      debug: msg="I am Vegan"
+      tags: 
+        - north_india
+        - vegeterian
+    - name: I like farming
+      debug: msg="I love to farm"
+      tags: east_india
+    - name: I love sea food
+      debug: msg="Where are crabs"
+      tags: south_india
+    - name: Idli Dosa
+      debug: msg="I like to eat at udupi"
+      tags: south_india
+
+    - name: Daal Baati
+      debug: msg="I go to Dhaba every weeked"
+      tags: west_india
+    

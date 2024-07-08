@@ -2,35 +2,23 @@
 
 - name: Team1
   hosts: team1
-  gather_facts: false
-  tasks:
-    - name: "install vim on machine"
-      apt:
-        name: vim
-        state: present
-      become: yes
+  # gather_facts: false
+  become: yes
+  roles:
+    - role: create_team
+    # - role: geerlingguy.apache
+      # # team_username: "{{ team_username }}"
+      # editor: "vim"
 
-    - name: create user 
-      ansible.builtin.user:
-        name: "{{ team_username }}"
-        comment: Created by ansible
-        group: sudo
-      become: yes
 
 
 - name: Team2
   hosts: team2
-  gather_facts: false
-  tasks:
-    - name: install nano
-      apt:
-        name: nano
-      become: yes
-        
-    - name: create user 
-      ansible.builtin.user:
-        name: "{{ team_username }}"
-        comment: Created by ansible
-        group: sudo
-      become: yes
+  # gather_facts: false
+  become: yes
+
+  roles:
+    - role: create_team
+      # # team_username: "{{ team_username }}"
+      # editor: "nano"
 

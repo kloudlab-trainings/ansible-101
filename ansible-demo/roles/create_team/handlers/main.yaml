@@ -1,0 +1,4 @@
+- name: cleanup log files
+  ansible.builtin.file:
+    path: /var/log/foo.log
+    state: absent
